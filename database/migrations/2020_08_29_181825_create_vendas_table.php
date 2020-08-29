@@ -15,7 +15,7 @@ class CreateVendasTable extends Migration
     {
         Schema::create('vendas', function (Blueprint $table) {
             $table->id();
-            $table->int('forma_pagamento');
+            $table->integer('forma_pagamento');
             $table->text('observacao')->nullable();
             $table->decimal('desconto', 10, 2)->nullable();
             $table->decimal('acresmico', 10, 2)->nullable();
