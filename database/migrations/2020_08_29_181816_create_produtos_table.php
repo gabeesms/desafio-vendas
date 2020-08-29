@@ -15,7 +15,7 @@ class CreateProdutosTable extends Migration
     {
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
-            $table->string('descricao', 100);
+            $table->string('descricao');
             $table->int('estoque');
             $table->decimal('preco', 10, 2);
             $table->usingnedBigInteger('fabricante_id');

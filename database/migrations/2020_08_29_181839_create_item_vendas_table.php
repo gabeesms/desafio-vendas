@@ -15,6 +15,13 @@ class CreateItemVendasTable extends Migration
     {
         Schema::create('item_vendas', function (Blueprint $table) {
             $table->id();
+            $table->int('quantidade');
+            $table->decimal('valor_unitario', 10, 2);
+            $table->decimal('valor_total', 10, 2);
+            $table->unsignedBigInteger('venda_id');
+            $table->foreign('venda_id')->references('id')->on('vendas');
+            $table->unsignedBigInteger('produto_id');
+            $table->foreign('produto_id')->references('id')->on('produtos');
             $table->timestamps();
         });
     }

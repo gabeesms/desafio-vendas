@@ -15,6 +15,13 @@ class CreateVendasTable extends Migration
     {
         Schema::create('vendas', function (Blueprint $table) {
             $table->id();
+            $table->int('forma_pagamento');
+            $table->text('observacao')->nullable();
+            $table->decimal('desconto', 10, 2)->nullable();
+            $table->decimal('acresmico', 10, 2)->nullable();
+            $table->decimal('total', 10, 2);
+            $table->unsignedBigInteger('cliente_id');
+            $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->timestamps();
         });
     }
