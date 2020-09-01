@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Vendas</b>CRUD',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -240,6 +240,11 @@ return [
             'url' => 'clientes',
             'text' => 'Clientes',
             'icon' => 'fas fa-users'
+        ],
+        [
+            'url' => 'produtos',
+            'text' => 'Produtos',
+            'icon' => 'fas fa-shopping-basket'
         ]
     ],
 

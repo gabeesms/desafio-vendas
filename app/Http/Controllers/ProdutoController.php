@@ -7,79 +7,51 @@ use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $produtos = \App\Models\Produto::all();
+
+        return view('produto.index', compact('produtos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('produto.form');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        \App\Models\Produto::create($request->all());
+        return redirect('/produtos');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Produto  $produto
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Produto $produto)
     {
-        //
+        return view('produto.show', compact('produto'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Produto  $produto
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Produto $produto)
     {
-        //
+        return view('produto.form', compact('produto'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Produto  $produto
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Produto $produto)
     {
-        //
+        $produto->update($request->all());
+        return redirect('/produtos');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Produto  $produto
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Produto $produto)
     {
-        //
+        $produto->delete();
+
+        return redirect('/produtos');
     }
 }

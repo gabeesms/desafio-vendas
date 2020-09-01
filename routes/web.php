@@ -30,3 +30,7 @@ Route::middleware('auth')->group(function(){
 Route::middleware('auth')->group(function(){
     Route::resource('clientes', 'ClienteController');
 });
+
+Route::middleware('auth')->group(function(){
+    Route::resource('produtos', 'ProdutoController');
+});
