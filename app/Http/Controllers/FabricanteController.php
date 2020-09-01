@@ -7,79 +7,47 @@ use Illuminate\Http\Request;
 
 class FabricanteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        return view('fabricante.index');
+        $fabricantes = \App\Models\Fabricante::all();
+        //$fabricantes = auth()->user()->fabricantes;
+        return view('fabricante.index', compact('fabricantes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('fabricante.form');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        //auth()->user()->pessoas()->create($request->all());
+        \App\Models\Fabricante::create($request->all());
+        return redirect('/fabricantes');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Fabricante  $fabricante
-     * @return \Illuminate\Http\Response
-     */
     public function show(Fabricante $fabricante)
     {
-        //
+        return view('fabricante.show', compact('fabricante'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Fabricante  $fabricante
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Fabricante $fabricante)
     {
-        //
+        return view('fabricante.form', compact('fabricante'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Fabricante  $fabricante
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Fabricante $fabricante)
     {
-        //
+        $fabricante->update($request->all());
+
+        return redirect('/fabricantes');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Fabricante  $fabricante
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Fabricante $fabricante)
     {
-        //
+        $fabricante->delete();
+
+        return redirect('/fabricantes');
     }
 }
