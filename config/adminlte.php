@@ -235,6 +235,11 @@ return [
             'url' => 'fabricantes',
             'text' => 'Fabricantes',
             'icon' => 'fas fa-truck'
+        ],
+        [
+            'url' => 'clientes',
+            'text' => 'Clientes',
+            'icon' => 'fas fa-users'
         ]
     ],
 
