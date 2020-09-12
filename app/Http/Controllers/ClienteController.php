@@ -24,8 +24,8 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
 
-           \App\Models\Cliente::create($request->all());
-           return redirect('/clientes');
+        \App\Models\Cliente::create($request->all());
+        return redirect('/clientes');
     }
 
 
